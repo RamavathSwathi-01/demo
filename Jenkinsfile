@@ -1,13 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.9.6-eclipse-temurin-17'
+        }
+    }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/RamavathSwathi-01/demo.git'
-            }
-        }
 
         stage('Build') {
             steps {
